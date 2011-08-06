@@ -1,0 +1,67 @@
+<!doctype html>  
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Wage Graphs</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.4">
+  <meta name="robots" content="all">
+  
+  <link rel="stylesheet" href="screen.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/raphael/1.5.2/raphael-min.js"></script>
+  <!--<script src="popup.js"></script>
+  <script src="analytics.js"></script> -->
+  <script src="lc.js"></script>
+  
+  <style type="text/css" media="screen">
+    body {
+      padding: 70px;
+      font: 300 100.1% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+    }
+  </style>
+  
+  <script type="text/javascript">
+  var dataobj = {
+  labels: ['3/02', '3/03', '3/09', '3/16'],
+  data: [[70, 70, 210, 490], [690, 320, 440, 415]],
+  lines1: [['70 Clicks', '70 Clicks', '210 Clicks', '490 Clicks'], ['690 Views', '320 Views', '440 Views', '415 Views']],
+  lines2: [['Mar 2nd 2011', 'Mar 3rd 2011', 'Mar 9th 2011', 'Mar 16th 2011'], ['Mar 2nd 2011', 'Mar 3rd 2011', 'Mar 9th 2011', 'Mar 16th 2011']]
+  }
+  </script>
+  
+  <script type="text/javascript">
+     window.onload = function(){
+        var w = 840; // you can make this dynamic so it fits as you would like
+        var paper = Raphael('line-chart', w, 400); // init the raphael obj and give it a width plus height
+        paper.lineChart({
+           data_holder: null  , // find the table data source by id
+           data: dataobj,
+           width: w, // pass in the same width
+           show_area: true, // show the area
+           x_labels_step: 3, // X axis labels step
+           y_labels_count: 5, // Y axis labels count
+           mouse_coords: 'rect', // rect (uses blanket mode) | circle (pinpoints the points)
+           colors: {
+             master: '#01A8F0' // set the line color
+           }
+        });
+     };
+  </script>
+
+</head>
+
+<body lang="en">
+  
+  <div id="main">
+    <p>Wage Graph</p>
+    <div id="line-chart"></div>    
+  </div>
+
+</body>
+</html>
