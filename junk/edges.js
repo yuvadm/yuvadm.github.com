@@ -41,7 +41,7 @@ $.ajax({
 		var display = $("<div id='friend-edge-display'></div>");		
 
 		for(var i = 0; i < friends.length; i++){
-			var info = "<div class='friend-edge'><span class='friend-edge-name'>" + friends[i].text + "</span><span class='friend-edge-index'>" + friends[i].index + "</span></div>";
+			var info = "<div class='friend-edge'><img src='" + friends[i].photo + "'><a href='" + friends[i].path + "'><span class='friend-edge-name'>" + friends[i].text + "</span><span class='friend-edge-index'>" + friends[i].index + "</span></a></div>";
 			$(display).append(info);
 		}
 		$('body').append(display);
