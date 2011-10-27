@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>L-System test</title>
+		<meta charset="utf-8" />
+		<style type="text/css" media="screen">
+			body { margin: 0; padding: 15px; border-top: solid 10px #000; }
+			canvas { border: solid 1px #999; }	
+			#controls { font-family: "Lucida Grande", Helvetica, Arial, sans-serif; font-size: 11px; margin-bottom: 10px; }
+			#controls input[type="text"] { border: solid 1px #ccc; font-weight: bold; padding: 2px; font-size: 12px; width: 35px; margin-right: 10px; }
+			#controls input#axiom { width: 75px; }
+			#controls input#ruleset { width: 200px; }
+		</style>
+	</head>
+	<body>
+		<div id="controls">
+			<form action="" onsubmit="generate(); return false;">
+			Axiom: <input type="text" id="axiom" name="axiom" value="F" />
+			Ruleset: <input type="text" id="ruleset" name="ruleset" value="F-F+FF-F-F+F" />
+			Angle: <input type="text" id="angle" name="angle" value="200" />
+			Iterations: <input type="text" id="iterations" name="iterations" value="4" />
+			Zoom: <input type="text" id="zoom" name="zoom" value="10" />
+			X: <input type="text" id="x" name="x" value="600" />
+			Y: <input type="text" id="y" name="y" value="300" />
+
+			<select id="drawtype" name="drawtype" onchange="generate()">
+				<option value="line">Line</option>
+				<option value="hollow_circle">Hollow Circle</option>
+				<option value="filled_circle">Filled Circle</option>
+				<option value="small_circles">Small Circles</option>
+				<option value="more_circles">More Circles</option>
+				<option value="faint">Faint</option>
+				<option value="triangles">Triangles</option>
+				<option value="hatch">Hatch</option>
+			</select>
+
+			<input id="generateButton" type="submit" value="Generate" />
+			<input id="saveButton" type="button" value="Download" onclick="saveImage()" />
+		</form>
+		</div>
+		<canvas width="1200" height="600"></canvas>
+
+		<script>
+			var c = document.getElementsByTagName('canvas')[0];
+			var a = c.getContext('2d');
+		</script>
+		<script type="text/javascript" charset="utf-8" src="lsystem.js"></script>
+		<script type="text/javascript" charset="utf-8" src="app.js"></script>
+	</body>
+</html>
